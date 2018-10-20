@@ -34,8 +34,8 @@ public class EfficientMarkov extends BaseMarkov{
 	
 	@Override
 	public void setTraining(String text) {
-		myText = text;
 		myMap.clear();
+		myText = text;
 		for(int index = 0; index < myText.length() - this.myOrder; index++) {
 			String gramKey = myText.substring(index, index + this.myOrder);
 			String nextValue;
@@ -43,7 +43,7 @@ public class EfficientMarkov extends BaseMarkov{
 				nextValue = PSEUDO_EOS;
 			}
 			else {
-				nextValue = myText.substring(index + this.myOrder);
+				nextValue = Character.toString(myText.charAt(index + this.myOrder));
 			}
 			if (myMap.get(gramKey) == null) {
 				myMap.put(gramKey, new ArrayList<String>());
