@@ -2,9 +2,9 @@ import java.io.*;
 import java.util.*;
 
 /**
- * Modified from Spring 2016 offering of Compsci 201
- * @author ola
- * @version 2.0
+ * Modified by me, just now, cause I'm awesome, in Fall 2018
+ * @author Alec Ashforth
+ * @version 3.0
  */
 
 
@@ -14,7 +14,7 @@ public class Benchmark {
 
 	
 	/**
-	 * Returns the MarkovModel object used to benchmark, e.g., BruteMarkov
+	 * Returns the MarkovModel object used to benchmark, e.g., BaseMarkov
 	 * or EfficientMarkov. Isolates dependency on the model to this single method.
 	 * @param order of the markov model returned
 	 * @return a model that implements the proper interface
@@ -87,8 +87,8 @@ public class Benchmark {
 		File file = new File("data/"+fileName);
 		double[] data;
 		String source = TextSource.textFromFile(file);
-		int[] sizes = {100,200,400,800,1600,3200,6400,12800};
-		int order = 5;
+		int[] sizes = {2000,4000,8000,16000,32000};
+		int order = 64;
 		MarkovInterface<String> model = getMarkov(order);
 		
 		// call benchmark and ignore value, first trial generates bogus data

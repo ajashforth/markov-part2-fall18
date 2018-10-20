@@ -3,6 +3,8 @@ This is the analysis for Markov Part 2, Fall 2018
 Include your name and net id here. Answer the questions from the assignment 
 that are reproduced below
 
+Alec Ashforth, aja40
+
 (1) Determine (from running Benchmark.java) how long it takes for 
 BaseMarkov to generate 2,000, 4,000, 8,000, 16,000, and 32,000 
 random characters using the default file and an order 5 Markov Model. 
@@ -10,6 +12,28 @@ Include these timings in your report.
 The program also generates 4,096 characters using texts that increase in 
 size from 496,768 characters to 4,967,680 characters (10 times the number).  
 Do you the timings support the O(NT) analysis for BaseMarkov?
+
+# of characters     time
+     2000			.184sec
+     4000			.347sec
+     8000			.708sec
+    16000			1.142sec
+    32000			2.788sec
+    
+***The timings do support the O(NT) analysis for BaseMarkov.  Each time the number of
+characters T doubled, the runtime approximately doubled as well.  When the text size
+N doubled (chart below), the runtime approximately doubled as well.***
+    
+0.353	496768	4096
+0.718	993536	4096
+1.074	1490304	4096
+1.506	1987072	4096
+1.946	2483840	4096
+2.137	2980608	4096
+2.522	3477376	4096
+2.925	3974144	4096
+3.491	4470912	4096
+3.703	4967680	4096
 
 
 
@@ -21,7 +45,34 @@ The program also generates 4,096 characters using texts that increase in
 size from 496,768 characters to 4,967,680 characters (10 times the number).  
 Do you the timings support the O(N+T) analysis for EfficientMarkov?
 
+# of characters		time
+	2000			.132secs
+	4000			.096secs
+	8000			.102secs
+	16000			.140secs
+	32000			.114secs
+	
+***The timings do support the O(N+T) analysis for EfficientMarkov.  When the number of
+characters T doubled, the runtime barely changed at all, indicating that T has little
+effect on the overall runtime.  Likewise, when the text size N doubled (see chart below),
+the runtime approximately doubled.  This is likely because N is much greater than T.  Thus,
+when N doubles, there is a much greater effect in the overall runtime.
+	
+0.069	496768	4096
+0.160	993536	4096
+0.215	1490304	4096
+0.285	1987072	4096
+0.531	2483840	4096
+0.967	2980608	4096
+1.113	3477376	4096
+1.148	3974144	4096
+1.464	4470912	4096
+1.535	4967680	4096
+
 (3)The tests in the class Benchmark use an order-5 Markov Model. 
 Run tests that you think are appropriate to determine if the order of the 
 Markov Model has a significant impact on the running time for BaseMarkov. 
 Explain your reasoning.
+
+As k decreases for order-k of the Markov models, the running time for 
+BaseMarkov increases. As k gets small, the number of unique keys decreases.  Thus
