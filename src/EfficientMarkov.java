@@ -36,10 +36,10 @@ public class EfficientMarkov extends BaseMarkov{
 	public void setTraining(String text) {
 		myMap.clear();
 		myText = text;
-		for(int index = 0; index < myText.length() - this.myOrder; index++) {
+		for(int index = 0; index < myText.length() - this.myOrder + 1; index++) {
 			String gramKey = myText.substring(index, index + this.myOrder);
 			String nextValue;
-			if (index + this.myOrder > myText.length()) {
+			if (index + this.myOrder >= myText.length()) {
 				nextValue = PSEUDO_EOS;
 			}
 			else {
