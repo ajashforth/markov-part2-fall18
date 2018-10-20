@@ -36,9 +36,9 @@ public class EfficientMarkov extends BaseMarkov{
 	public void setTraining(String text) {
 		myText = text;
 		myMap.clear();
-		for(int index = 0; index < myText.length() - myOrder + 1; index++) {
-			String gramKey = myText.substring(index, index + myOrder);
-			String nextValue = myText.substring(myOrder);
+		for(int index = 0; index < myText.length() - this.myOrder; index++) {
+			String gramKey = myText.substring(index, index + this.myOrder);
+			String nextValue = myText.substring(index + this.myOrder);
 			if (myMap.get(gramKey) == null) {
 				myMap.put(gramKey, new ArrayList<String>());
 			}
