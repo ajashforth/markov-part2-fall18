@@ -38,7 +38,13 @@ public class EfficientMarkov extends BaseMarkov{
 		myMap.clear();
 		for(int index = 0; index < myText.length() - this.myOrder; index++) {
 			String gramKey = myText.substring(index, index + this.myOrder);
-			String nextValue = myText.substring(index + this.myOrder);
+			String nextValue;
+			if (index + this.myOrder > myText.length()) {
+				nextValue = PSEUDO_EOS;
+			}
+			else {
+				nextValue = myText.substring(index + this.myOrder);
+			}
 			if (myMap.get(gramKey) == null) {
 				myMap.put(gramKey, new ArrayList<String>());
 			}
