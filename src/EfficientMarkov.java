@@ -25,7 +25,7 @@ public class EfficientMarkov extends BaseMarkov{
 	}
 	
 	/**
-	 * Default constructor has order 3
+	 * Default constructor has order 3 from the BaseMarkov superclass
 	 */
 	public EfficientMarkov() {
 		super();

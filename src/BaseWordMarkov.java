@@ -4,7 +4,7 @@ import java.util.*;
  * Similar to BaseMarkov, but uses WordGram objects instead of String
  * objects to generate random text.
  * 
- * @author ola
+ * @author Alec Ashforth
  *
  */
 public class BaseWordMarkov implements MarkovInterface<WordGram> {
