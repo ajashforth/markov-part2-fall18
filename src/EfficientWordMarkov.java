@@ -39,14 +39,15 @@ public class EfficientWordMarkov extends BaseWordMarkov{
 	public void setTraining(String text) {
 		myMap.clear();
 		myWords = text.split("\\s+");
-		for(int index = 0; index < myWords.length() - this.myOrder + 1; index++) {
-			String gramKey = myWords.substring(index, index + this.myOrder);
+		for(int index = 0; index < myWords.length - this.myOrder + 1; index++) {
+			// String gramKey = myWords.substring(index, index + this.myOrder);
+			WordGram gramKey = new WordGram(myWords,index,this.myOrder);
 			String nextValue;
-			if (index + this.myOrder >= myWords.length()) {
+			if (index + this.myOrder >= myWords.length) {
 				nextValue = PSEUDO_EOS;
 			}
 			else {
-				nextValue = Character.toString(myWords.charAt(index + this.myOrder));
+				nextValue = myWords[index + this.myOrder];
 			}
 			if (myMap.get(gramKey) == null) {
 				myMap.put(gramKey, new ArrayList<String>());
