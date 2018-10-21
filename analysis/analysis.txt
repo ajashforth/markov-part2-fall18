@@ -75,5 +75,8 @@ Markov Model has a significant impact on the running time for BaseMarkov.
 Explain your reasoning.
 
 As k decreases towards 1 for order-k of the Markov models, the running time for 
-BaseMarkov increases. As k gets small, the number of unique keys decreases. Thus.  
-Likewise, as k increases towards 
+BaseMarkov increases. As k gets small, each string in the arraylist is smaller, meaning
+that, in order to get through the entire text, the code will need to run through the
+while loop more times. The more times the while loop has to run, the longer the runtime.
+Likewise, as k increases towards N, the runtime for BaseMarkov decreases
+significantly since the code must go through the while loop less times.
