@@ -74,5 +74,6 @@ Run tests that you think are appropriate to determine if the order of the
 Markov Model has a significant impact on the running time for BaseMarkov. 
 Explain your reasoning.
 
-As k decreases for order-k of the Markov models, the running time for 
-BaseMarkov increases. As k gets small, the number of unique keys decreases.  Thus
+As k decreases towards 1 for order-k of the Markov models, the running time for 
+BaseMarkov increases. As k gets small, the number of unique keys decreases. Thus.  
+Likewise, as k increases towards 
